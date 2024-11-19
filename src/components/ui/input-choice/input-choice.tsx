@@ -5,41 +5,7 @@ import { InputChoiceProps } from './input-choice.type';
 import { forwardRef, useState } from 'react';
 import { mergeRefs } from '@/utils/mergeRefs';
 
-/**
- * InputChoice is a specialized input component designed to work seamlessly with the `useForm` hook
- * from `react-hook-form`. It provides controlled form state management, including custom handling
- * of `onChange`, making it ideal for boolean or choice-based input fields like checkboxes and radio buttons.
- *
- * This component integrates with the form state and supports custom updates of the form field values.
- *
- * @component
- * @param {InputChoiceProps} props - The properties for the `InputChoice` component.
- * @param {string} props.fieldName - The unique name for the field used to register the input in the form context.
- * @param {"checkbox" | "radio"} [props.type="checkbox"] - Specifies the type of the input. Supports `checkbox` or `radio` input fields.
- * @param {boolean} [props.includeInForm=true] - Determines whether this input field should be included in the form state.
- * @param {React.Ref<HTMLInputElement>} ref - A forwarded ref to the input element.
- * @param {function} [props.onChange] - Optional custom `onChange` handler for the input field.
- * @param {React.InputHTMLAttributes<HTMLInputElement>} props - Other standard HTML input attributes.
- * @returns {JSX.Element} The rendered input field.
- *
- * @remarks
- * This component integrates with `useForm`, allowing the input to be registered and controlled by the `react-hook-form` hook.
- * - `register`: Registers the input within the form context.
- * - `setForm`: Updates the form state whenever the field value changes.
- *
- * The component ensures the form state stays synchronized with the input value and supports custom logic for handling changes.
- *
- * Unlike a standard HTML `<input />` element, this component:
- * - Manages its state internally (via `useState`).
- * - Strongly integrates with the form state managed by `useForm`.
- * - Supports custom styles, animations, and transitions, especially for boolean-choice inputs like checkboxes and radio buttons.
- *
- * The state of the component is updated whenever the input value changes, and depending on the `includeInForm` value, it will also update the global form state.
- *
- * The applied `className` provides dynamic styles for various interaction states of the component, such as focus, hover, and checked, with visual transitions to enhance the user experience.
- *
- * When used with the `useForm` hook, the `fieldName` acts as the key to map the field's value within the form, enabling validation and submission of the data.
- */
+
 export const InputChoice = forwardRef<HTMLInputElement, InputChoiceProps>(
   (
     { fieldName, type = 'checkbox', includeInForm = true, onChange, ...props },
