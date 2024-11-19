@@ -5,31 +5,7 @@ import { forwardRef, useState } from 'react';
 import { Slot } from './slot';
 import { InputOTPProps } from './input-otp.type';
 
-/**
- * InputOTP is a specialized OTP (One-Time Password) input component that integrates with `useForm`.
- * Unlike a regular input, it splits the OTP into individual character slots, each displaying a single digit or character.
- *
- * @component
- * @param {InputOTPProps} props - The props for InputOTP.
- * @param {string} props.fieldName - The name used to register the OTP input in the form.
- * @param {number} [props.length=1] - The number of characters (slots) expected in the OTP input.
- * @param {string} [props.containerClassName] - Optional class name for the outer container of the OTP slots.
- * @param {string} [props.slotClassName] - Optional class name for styling each OTP slot.
- * @param {string} [props.fakeCaretClassName] - Optional class name for customizing the fake caret behavior in each slot.
- * @returns {JSX.Element} A multi-slot OTP input field.
- *
- * @example
- * // Usage of InputOTP
- * <InputOTP
- *   fieldName="otp"
- *   length={6}
- * />
- *
- * @remarks
- * This component leverages `useForm` and supports integration with form validation libraries like `react-hook-form` and `zod`.
- * It also provides input masking through `maskSchema` and updates the form state on change.
- * Each character slot is managed independently, styled via the `Slot` component.
- */
+
 export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
   (
     {
