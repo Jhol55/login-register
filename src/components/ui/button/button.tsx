@@ -3,21 +3,7 @@ import { cn } from '@/lib/utils';
 import { darkenColor } from '@/utils/darkenColor';
 import { MultiVariantButtonProps } from './button.type';
 
-/**
- * Reusable Button component with customizable styles and behavior.
- *
- * @component
- * @param {Object} props - The properties of the Button component.
- * @param {"default" | "gradient"} [props.variant="default"] - The style variant of the button.
- * @param {"button" | "submit" | "reset"} [props.type="button"] - The type of the button.
- * @param {string} [props.bgHexColor="#30c18c"] - The hex color for the button's background.
- * @param {boolean} [props.animated=true] - Whether the button includes hover animations (applies only to the gradient variant).
- * @param {string} [props.className] - Additional custom CSS classes for the button.
- * @param {React.ReactNode} props.children - The content inside the button.
- * @param {React.Ref<HTMLButtonElement>} ref - A ref to the button element.
- * @param {React.ButtonHTMLAttributes<HTMLButtonElement>} props.props - Additional HTML attributes for the button.
- * @returns {JSX.Element} A styled button component.
- */
+
 const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
   (
     {
