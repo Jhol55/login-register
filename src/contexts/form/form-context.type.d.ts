@@ -1,4 +1,3 @@
-import { Dispatch } from 'react';
 import {
   UseFormRegister,
   FieldErrors,
@@ -14,11 +13,7 @@ export interface FormContextProps {
     | Record<string, (e: React.ChangeEvent<HTMLInputElement>) => void>
     | undefined;
   form: { [key: string]: string | number | boolean | undefined };
-  setForm: Dispatch<
-    React.SetStateAction<{
-      [key: string]: string | number | boolean | undefined;
-    }>
-  >;
+  setValue: UseFormSetValue<FieldValues>;
   isSubmitting: boolean;
   isSubmitSuccessful: boolean;
 }

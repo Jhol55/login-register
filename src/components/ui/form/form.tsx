@@ -1,6 +1,6 @@
 'use client';
 
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProps } from './form.type';
@@ -22,16 +22,16 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
   ) => {
     const {
       register,
+      watch,
       handleSubmit,
       setError,
+      setValue,
       formState: { errors, isSubmitting, isSubmitSuccessful },
     } = useForm({
       resolver: zodSchema ? zodResolver(zodSchema) : undefined,
     });
 
-    const [form, setForm] = useState<{
-      [key: string]: string | number | boolean | undefined;
-    }>({});
+    const form = watch();
 
     useEffect(() => {
       onChange?.(form);
@@ -45,7 +45,7 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(
           errors,
           maskSchema,
           form,
-          setForm,
+          setValue,
           isSubmitting,
           isSubmitSuccessful,
         }}
