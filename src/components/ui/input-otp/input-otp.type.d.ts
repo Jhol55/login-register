@@ -8,7 +8,6 @@ export interface InputOTPProps extends InputHTMLAttributes<HTMLInputElement> {
   fieldName: string;
   length: number;
   type?: HTMLInputTypeAttribute;
-  includeInForm?: boolean;
   containerClassName?: string;
   slotClassName?: string;
   fakeCaretClassName?: string;
