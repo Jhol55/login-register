@@ -1,6 +1,5 @@
 import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { InputChoice } from '@/components/ui/input-choice';
 import { SubmitButton } from '@/components/ui/submit-button';
 import { Typography } from '@/components/ui/typography';
 import { InputProps } from '@/components/ui/input/input.type';
@@ -82,7 +81,7 @@ export const LoginForm = ({
       ))}
       <div className="flex justify-between items-center w-full mb-2">
         <div className="flex items-center gap-2">
-          <InputChoice
+          <Input
             type="checkbox"
             id={`${baseId}-${inputs.length}`}
             fieldName="remember"
