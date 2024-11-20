@@ -45,7 +45,6 @@ export const RegisterForm = ({
       placeholder: '••••••••••••',
       fieldName: 'repeatPassword',
       type: 'password',
-      includeInForm: false,
     },
   ];
 
@@ -73,7 +72,6 @@ export const RegisterForm = ({
       )}
       zodSchema={registerFormSchema}
       onSubmit={handleSubmit}
-      onChange={(data) => console.log(data)}
     >
       <div className="h-full" /> {/* justify-center when overflow */}
       {inputs.map((input, index) => (
@@ -87,7 +85,6 @@ export const RegisterForm = ({
             type={input.type}
             placeholder={input.placeholder}
             fieldName={input.fieldName}
-            includeInForm={input.includeInForm}
           />
 
           <ErrorField fieldName={input.fieldName} />
