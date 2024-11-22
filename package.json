@@ -10,7 +10,13 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "prettier --write .",
-    "commit": "cz"
+    "commit": "cz",
+    "prepare": "husky install && git config --local core.editor cat"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -39,7 +45,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
-    "eslint-plugin-storybook": "^0.11.0",
+    "husky": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
