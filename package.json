@@ -11,12 +11,7 @@
     "test:watch": "jest --watch",
     "format": "prettier --write .",
     "commit": "cz",
-    "prepare": "husky install && git config --local core.editor cat"
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
-    }
+    "prepare": "husky install && git config --local core.editor cat && git config core.hooksPath .husky/_"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
