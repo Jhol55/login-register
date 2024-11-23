@@ -11,6 +11,7 @@ import { FieldValues, UseFormSetError } from 'react-hook-form';
 import { userService } from '@/services/user';
 import { loginFormSchema } from '@/components/forms/login/login.schema';
 import { useRouter } from 'next/navigation';
+import { FormControl } from '@/components/ui/form-control';
 
 export const LoginForm = ({
   className,
@@ -65,9 +66,9 @@ export const LoginForm = ({
       <div className="h-full" /> {/* justify-center when overflow */}
       {inputs.map((input, index) => (
         <React.Fragment key={index}>
-          <Typography variant="label" htmlFor={`${baseId}-${index}`}>
+          <FormControl variant="label" htmlFor={`${baseId}-${index}`}>
             {input.label}
-          </Typography>
+          </FormControl>
 
           <Input
             id={`${baseId}-${index}`}
