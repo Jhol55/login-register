@@ -1,13 +1,12 @@
 import {
   ChangeEvent,
-  HTMLInputTypeAttribute,
   InputHTMLAttributes,
 } from 'react';
 
 export interface InputOTPProps extends InputHTMLAttributes<HTMLInputElement> {
   fieldName: string;
   length: number;
-  type?: HTMLInputTypeAttribute;
+  type?: "text" | "number" | "password";
   containerClassName?: string;
   slotClassName?: string;
   fakeCaretClassName?: string;
