@@ -1,10 +1,9 @@
-interface BaseProps {
+export interface TypographyProps {
   children: React.ReactNode;
   variant?:
     | 'p'
     | 'b'
     | 'span'
-    | 'label'
     | 'h1'
     | 'h2'
     | 'h3'
@@ -15,9 +14,3 @@ interface BaseProps {
   className?: string;
 }
 
-interface LabelProps extends BaseProps {
-  variant: 'label';
-  htmlFor: string;
-}
-
-export type TypographyProps = BaseProps | LabelProps;
