@@ -1,5 +1,4 @@
 import { SubmitButton } from '@/components/ui/submit-button';
-import { Typography } from '@/components/ui/typography';
 import { InputProps } from '@/components/ui/input/input.type';
 import { ErrorField } from '@/components/ui/error-field';
 import { Form } from '@/components/ui/form';
@@ -10,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 import { userService } from '@/services/user';
 import { useRouter } from 'next/navigation';
+import { FormControl } from '@/components/ui/form-control';
 
 export const RegisterForm = ({
   className,
@@ -76,9 +76,9 @@ export const RegisterForm = ({
       <div className="h-full" /> {/* justify-center when overflow */}
       {inputs.map((input, index) => (
         <React.Fragment key={index}>
-          <Typography variant="label" htmlFor={`${baseId}-${index}`}>
+          <FormControl variant="label" htmlFor={`${baseId}-${index}`}>
             {input.label}
-          </Typography>
+          </FormControl>
 
           <Input
             id={`${baseId}-${index}`}
