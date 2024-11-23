@@ -4,7 +4,16 @@ import { forwardRef } from 'react';
 import { ControlledInputOTPSlotProps } from './slot.type';
 
 export const Slot = forwardRef<HTMLDivElement, ControlledInputOTPSlotProps>(
-  ({ isActive, className, fakeCaretClassName, children }, ref) => {
+  (
+    {
+      isActive,
+      className,
+      fakeCaretClassName,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -17,6 +26,7 @@ export const Slot = forwardRef<HTMLDivElement, ControlledInputOTPSlotProps>(
           { 'outline-3 outline-emerald-400 border-emerald-400 z-10': isActive },
           className,
         )}
+        {...props}
       >
         {children}
         <FakeCaret isActive={isActive} className={fakeCaretClassName} />
