@@ -3,12 +3,17 @@ import { FormControlProps } from "./form-control.type";
 import { forwardRef } from "react";
 
 
-export const FormControl = forwardRef<HTMLElement, FormControlProps>(({
+export const FormControl = forwardRef<
+    HTMLLabelElement &
+    HTMLFieldSetElement &
+    HTMLLegendElement,
+    FormControlProps
+>(({
     variant = "label",
     className,
     children,
     ...props
-}: FormControlProps) => {
+}, ref) => {
     const Component = variant;
 
     const styles = {
@@ -19,6 +24,7 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(({
 
     return (
         <Component
+            ref={ref}
             className={cn(
                 className,
                 styles[variant])}
