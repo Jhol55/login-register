@@ -1,7 +1,6 @@
 import { Form } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { SubmitButton } from '@/components/ui/submit-button';
-import { Typography } from '@/components/ui/typography';
 import { InputProps } from '@/components/ui/input/input.type';
 import { ErrorField } from '@/components/ui/error-field';
 import React, { useId } from 'react';
@@ -87,13 +86,13 @@ export const LoginForm = ({
             id={`${baseId}-${inputs.length}`}
             fieldName="remember"
           />
-          <Typography
+          <FormControl
             variant="label"
             htmlFor={`${baseId}-${inputs.length}`}
             className="translate-y-[2px] whitespace-nowrap text-sm"
           >
             Lembrar de mim
-          </Typography>
+          </FormControl>
         </div>
         <Link
           href="/forget-password"
