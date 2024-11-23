@@ -37,6 +37,11 @@ export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
       onChange?.(e);
     };
 
+    const handleOnMouseDown = (e: React.MouseEvent<HTMLInputElement>) => {
+      e.preventDefault();
+      (e.target as HTMLInputElement).focus();
+    }
+
     return (
       <div className={cn('relative', containerClassName)}>
         <input
@@ -45,6 +50,7 @@ export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
           maxLength={length}
           type={type}
           onChange={handleOnChange}
+          onMouseDown={handleOnMouseDown}
           className={cn(
             'absolute w-full h-full text-transparent bg-transparent outline-0 select-none z-50 text-opacity-0',
             className,
