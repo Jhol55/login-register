@@ -2,13 +2,13 @@ import { confirmEmailFormSchema } from '@/components/forms/confirm-email/confirm
 import { Form } from '@/components/ui/form';
 import { InputOTP } from '@/components/ui/input-otp';
 import { SubmitButton } from '@/components/ui/submit-button';
-import { Typography } from '@/components/ui/typography';
 import { ErrorField } from '@/components/ui/error-field';
 import { confirmEmailFormMask } from '@/components/forms/confirm-email/confirm-email.mask';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { userService } from '@/services/user';
 import { useUser } from '@/hooks/use-user';
+import { FormControl } from '@/components/ui/form-control';
 
 export const ConfirmEmailForm = () => {
   const router = useRouter();
@@ -42,9 +42,9 @@ export const ConfirmEmailForm = () => {
     >
       <div className="flex justify-center">
         <div className="flex flex-col gap-2">
-          <Typography variant="label" htmlFor="validationCode">
+          <FormControl variant="label" htmlFor="validationCode">
             Código de confirmação
-          </Typography>
+          </FormControl>
           <InputOTP id="validationCode" length={6} fieldName="validationCode" />
           <ErrorField fieldName="validationCode" />
         </div>
