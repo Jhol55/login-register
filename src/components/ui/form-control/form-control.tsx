@@ -6,7 +6,8 @@ import { forwardRef } from "react";
 export const FormControl = forwardRef<HTMLElement, FormControlProps>(({
     variant = "label",
     className,
-    children
+    children,
+    ...props
 }: FormControlProps) => {
     const Component = variant;
 
@@ -17,7 +18,12 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(({
     }
 
     return (
-        <Component className={cn(className, styles[variant])}>
+        <Component
+            className={cn(
+                className,
+                styles[variant])}
+            {...props}
+        >
             {children}
         </Component>
     )
