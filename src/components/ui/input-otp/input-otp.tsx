@@ -40,7 +40,7 @@ export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
     const handleOnMouseDown = (e: React.MouseEvent<HTMLInputElement>) => {
       e.preventDefault();
       (e.target as HTMLInputElement).focus();
-    }
+    };
 
     return (
       <div className={cn('relative', containerClassName)}>
