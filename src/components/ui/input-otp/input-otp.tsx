@@ -5,7 +5,6 @@ import { forwardRef } from 'react';
 import { Slot } from './slot';
 import { InputOTPProps } from './input-otp.type';
 
-
 export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
   (
     {

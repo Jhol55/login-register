@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import { InputOTP } from './input-otp';
 import { useForm } from '@/hooks/use-form';
@@ -48,19 +48,20 @@ describe('InputOTP Component', () => {
 
   it('should apply the mask schema function to input value when provided', () => {
     const maskSchema = {
-      test: (e: React.ChangeEvent<HTMLInputElement>) => e.target.value.toUpperCase(),
+      test: (e: React.ChangeEvent<HTMLInputElement>) =>
+        e.target.value.toUpperCase(),
     };
 
-    const setValue = jest.fn()
+    const setValue = jest.fn();
 
     const onChangeMock = jest.fn((e: React.ChangeEvent<HTMLInputElement>) => {
-      const type = e.target.type; 
-      if (!["checkbox", "radio"].includes(type)) {
+      const type = e.target.type;
+      if (!['checkbox', 'radio'].includes(type)) {
         const maskedValue = maskSchema.test(e) ?? e.target.value;
-        setValue("test", maskedValue);
+        setValue('test', maskedValue);
       }
     });
-  
+
     const { container } = setUp({ onChange: onChangeMock });
     const input = container.querySelector('input') as HTMLInputElement;
 

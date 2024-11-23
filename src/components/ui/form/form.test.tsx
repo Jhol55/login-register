@@ -82,7 +82,7 @@ describe('Form component', () => {
     );
 
     mockOnSubmit.mockImplementationOnce((_, setError) => {
-        setError('name', { message: 'Custom error message'});
+      setError('name', { message: 'Custom error message' });
     });
 
     await act(async () => {

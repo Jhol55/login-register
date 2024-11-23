@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils';
 import { ErrorFieldProps } from './error-field.type';
 import { forwardRef } from 'react';
 
-
 export const ErrorField = forwardRef<HTMLParagraphElement, ErrorFieldProps>(
   ({ fieldName, className }, ref) => {
     const { errors } = useForm();

@@ -3,7 +3,6 @@ import { cn } from '@/lib/utils';
 import { darkenColor } from '@/utils/darkenColor';
 import { MultiVariantButtonProps } from './button.type';
 
-
 const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
   (
     {
