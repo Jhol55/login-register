@@ -27,14 +27,13 @@ export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
       onChange: registerOnChange,
       ...registerProps
     } = register(fieldName);
-    
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = (maskSchema?.[fieldName]?.(e) ?? e.target.value).slice(
         0,
         length,
       );
-      setValue(fieldName, newValue);     
+      setValue(fieldName, newValue);
       registerOnChange?.(e);
       onChange?.(e);
     };
@@ -57,12 +56,12 @@ export const InputOTP = forwardRef<HTMLInputElement, InputOTPProps>(
         <div className="flex">
           {Array.from({ length }, (_, index) => (
             <Slot
-              key={index}
-              isActive={(form[fieldName] as string)?.length === index}
+              key={`${fieldName}-${index}`}
+              isActive={(form?.[fieldName] as string)?.length === index}
               className={slotClassName}
               fakeCaretClassName={fakeCaretClassName}
             >
-              {(form[fieldName] as string)?.charAt(index)}
+              {(form?.[fieldName] as string)?.charAt(index)}
             </Slot>
           ))}
         </div>
