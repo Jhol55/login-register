@@ -11,6 +11,8 @@ import { userService } from '@/services/user';
 import { loginFormSchema } from '@/components/forms/login/login.schema';
 import { useRouter } from 'next/navigation';
 import { FormControl } from '@/components/ui/form-control';
+import { GoogleOAuthButton } from '@/components/ui/google-oauth-button';
+import { Typography } from '@/components/ui/typography';
 
 export const LoginForm = ({
   className,
@@ -104,6 +106,14 @@ export const LoginForm = ({
       </div>
       <SubmitButton variant="gradient">Login</SubmitButton>
       {children}
+      <div className="flex flex-col justify-center w-full mt-4 gap-6">
+        <div className="flex justify-center items-center gap-4 w-full">
+          <hr className="w-full" />
+          <Typography>OU</Typography>
+          <hr className="w-full" />
+        </div>
+        <GoogleOAuthButton />
+      </div>
       <div className="h-full" /> {/* justify-center when overflow */}
     </Form>
   );
