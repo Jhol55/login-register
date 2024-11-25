@@ -11,7 +11,10 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <Container variant="main">
-      <Container variant="section" className="md:flex hidden md:w-1/2 xl:w-1/3">
+      <Container
+        variant="section"
+        className="md:flex flex-col hidden md:w-1/2 xl:w-1/3"
+      >
         <LoginForm className="z-1" />
       </Container>
       <Container
