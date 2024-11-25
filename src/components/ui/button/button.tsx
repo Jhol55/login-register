@@ -2,6 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { darkenColor } from '@/utils/darkenColor';
 import { MultiVariantButtonProps } from './button.type';
+import Image from 'next/image';
 
 const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
   (
@@ -9,9 +10,11 @@ const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
       variant = 'default',
       type = 'button',
       bgHexColor = '#30c18c',
+      darkenFactor = 0.22,
       animated = true,
       className,
       children,
+      icon = { src: '', width: 16, height: 16, alt: '' },
       ...props
     },
     ref,
@@ -36,11 +39,11 @@ const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
 
     const gradientBackground = useMemo(() => {
       if (variant === 'gradient') {
-        const darkenedBackgroundColor = darkenColor(bgHexColor, 0.22);
+        const darkenedBackgroundColor = darkenColor(bgHexColor, darkenFactor);
         return `linear-gradient(325deg, ${darkenedBackgroundColor} 0%, ${bgHexColor} 55%, ${darkenedBackgroundColor} 90%)`;
       }
       return undefined;
-    }, [variant, bgHexColor]);
+    }, [variant, bgHexColor, darkenFactor]);
 
     return (
       <button
@@ -53,7 +56,19 @@ const Button = forwardRef<HTMLButtonElement, MultiVariantButtonProps>(
         }}
         {...props}
       >
-        {children}
+        <span className="relative flex items-center justify-center gap-2">
+          {icon.src && (
+            <Image
+              {...{
+                src: icon.src,
+                width: icon.width,
+                height: icon.height,
+                alt: icon.alt,
+              }}
+            />
+          )}
+          {children}
+        </span>
       </button>
     );
   },
